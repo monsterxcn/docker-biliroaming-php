@@ -60,13 +60,13 @@
    # 打开 http://ip:8080/ 登录 PhpMyAdmin
    ```
    
-   使用 PhpMyAdmin 新建用户、数据库导入导出就不用多说了吧。
+   使用 PhpMyAdmin 新建用户、数据库导入导出就不用多说了吧。将 `wwwroot/bili/cache.sql` 导入至 BiliRoaming 解析缓存数据库。
    
    访问 PhpMyAdmin 的地址与第 2 步中设置相关，默认为 `http://ip:8080/`，若无法访问请检查服务器是否放通指定端口。
 
 5. **配置 BiliRoaming 解析服务**
    
-   [@david082321/BiliRoaming-PHP-Server](https://github.com/david082321/BiliRoaming-PHP-Server) 作为子模块放置于 `wwwroot/bili/` 目录下。请参考该项目说明配置。
+   [@david082321/BiliRoaming-PHP-Server](https://github.com/david082321/BiliRoaming-PHP-Server) 作为子模块放置于 `wwwroot/bili/` 目录下。**数据库地址务必填写 `mysql`**，其他结合上一步和 BiliRoaming-PHP-Server 项目说明配置。
    
    ```bash
    nano wwwroot/bili/config.php
@@ -80,16 +80,20 @@
 
 ### 高级
 
- - **使用自定义 HTML 页面作为网址直接访问展示**
+
+<details><summary>兴趣使然，仅供参考</summary><br />
+
+
+ - **使用自定义 HTML 页面作为站点首页**
    
-   根据 [@david082321/BiliRoaming-PHP-Server](https://github.com/david082321/BiliRoaming-PHP-Server) 目前版本代码，修改 `wwwroot/bili/index.php` 第 34 行：
+   根据 [@david082321/BiliRoaming-PHP-Server](https://github.com/david082321/BiliRoaming-PHP-Server) 目前版本代码，需对 `wwwroot/bili/index.php` 进行如下替换：
    
    ```php
    // exit(WELCOME);
    header("Location: /home.html");
    ```
    
-   在 `wwwroot/bili/` 新建 `home.html` 文件即可将网址直接显示页面展示为其他页面。
+   在 `wwwroot/bili/` 新建 `home.html` 文件，将其展示为站点首页。
 
  - **使用此项目部署其他站点**
    
@@ -144,3 +148,6 @@
      # ...
    }
    ```
+
+
+</details>
