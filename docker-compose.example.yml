@@ -56,12 +56,3 @@ services:
       PMA_HOST: mysql
       TZ: ${TZ}
     restart: on-failure
-
-
-  redis:
-    image: "${REDIS_VERSION}"
-    volumes:
-      - ./data/redis/data:/data:rw
-    environment:
-      TZ: ${TZ}
-    restart: on-failure
